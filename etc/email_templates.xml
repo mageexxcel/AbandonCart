@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="excellence_abandoncart_template" label="Abandon Cart Email Send" file="abandonacart.html" type="html" module="Excellence_AbandonCart" area="frontend"/>
+    <template id="excellence_second_abandoncart_template" label="Abandon Cart Second Email Send" file="abandonacart_second_template.html" type="html" module="Excellence_AbandonCart" area="frontend"/>
+    <template id="excellence_third_abandoncart_template" label="Abandon Cart Third Email Send" file="abandonacart_third_template.html" type="html" module="Excellence_AbandonCart" area="frontend"/>
+</config>

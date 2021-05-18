@@ -1,0 +1,38 @@
+<?php
+$quoteId = $this->getQuoteId();
+$helper = $this->helper('Excellence\AbandonCart\Helper\Data');
+$items = $helper->loadQuoteById($quoteId);
+?>
+<table class="order-details" width="100%">
+    <tr>
+        <th class="address-details">Product</th>
+        <th class="address-details">#SKU</th>
+        <th class="address-details">Price</th>
+        <th class="address-details">Qty</th>
+        <th class="address-details">Total</th>
+    </tr>
+
+<?php
+foreach($items as $item){
+    ?>
+    <tr>
+        <td class="method-info">
+            <?php echo $item->getName(); ?>
+        </td>
+        <td class="method-info">
+            <?php echo $item->getSku(); ?>
+        </td>
+        <td class="method-info">
+        <?php echo number_format((float)$item->getPrice(), 2, '.', ''); ?>
+        </td>
+        <td class="method-info">
+            <?php echo $item->getQty(); ?>
+        </td>
+        <td class="method-info">
+            <?php echo ($item->getPrice() * $item->getQty()); ?>
+        </td>
+    </tr>
+<?php
+}
+?>
+</table>
