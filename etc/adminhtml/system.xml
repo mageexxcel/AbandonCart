@@ -1,0 +1,116 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="excellence_abandoncart" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Abandon Cart</label>
+            <tab>excellence</tab>
+            <resource>Excellence_AbandonCart::abandoncart_config</resource>
+            <group id="excellence_abandoncart_setting" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Abandon Cart 1</label>
+                <field id="enable_control" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable First Alert</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable/Disable Abandon Cart Module</comment>
+                </field> 
+                <field id="set_time" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Set Time</label>
+                    <comment></comment>
+                    <depends>
+						<field id="enable_control">1</field>
+					</depends>
+                </field>                              
+            </group>
+            <group id="excellence_abandoncart_coupon" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Generate Coupon and Send</label>
+                <field id="enable_coupon" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Send Coupon (Yes/No)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable/Disable For Sending Coupon Code to Customer</comment>
+                </field>
+                <field id="coupon_name" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Coupon Prefix</label>
+                    <comment>Enter Name to Set in Starting of Coupon Name(Prefix)</comment>
+                </field>
+                <field id="coupon_desc" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Coupon Description</label>
+                    <comment>Enter Discription For Coupon Code</comment>
+                </field>
+                <field id="max_redeemtion" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Max RedeemTion</label>
+                    <comment>Max Redeemtion For Coupon Code</comment>
+                </field>
+                <field id="discount_type" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Type Of Discount</label>
+                    <source_model>Excellence\AbandonCart\Model\Config\Source\CouponDiscountType</source_model>
+                    <comment>Select Discount Type For Coupon </comment>
+                </field>
+                <field id="discount_amount" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Discount Amount</label>
+                    <comment>Enter Coupon Discount Amount</comment>
+                </field>
+                <field id="flag_is_free_shipping" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Free Shipping</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select For Free Shipping</comment>
+                </field>
+                <field id="send_coupon" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Mail To Send Coupon</label>
+                    <source_model>Excellence\AbandonCart\Model\Config\Source\SendCoupon</source_model>
+                    <comment>Select Mail To Send Coupon Code</comment>
+                </field>
+            </group>
+
+            <group id="excellence_abandoncart_setting_cart_second" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Abandon Cart 2</label>
+                <field id="enable_control" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Second Alert</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment></comment>
+                </field>
+                
+                <field id="abandon_cart_hrs" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Consider cart as abandon after</label>        
+                    <source_model>Excellence\AbandonCart\Model\Config\Source\AbandonDuration</source_model>
+                    <depends>
+                        <field id="excellence_abandoncart/excellence_abandoncart_setting_cart_second/enable_control">1</field>
+                    </depends>
+                </field>                   
+            </group>
+
+            <group id="excellence_abandoncart_setting_cart_third" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Abandon Cart 3</label>
+                <field id="enable_control" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Third Alert</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment></comment>
+                </field>
+                
+                <field id="abandon_cart_hrs" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Consider cart as abandon after</label>        
+                    <source_model>Excellence\AbandonCart\Model\Config\Source\AbandonDuration</source_model>
+                    <depends>
+                        <field id="excellence_abandoncart/excellence_abandoncart_setting_cart_third/enable_control">1</field>
+                    </depends>
+                </field>
+
+                <field id="abandon_cart_promotion" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send promotional discount code</label>        
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="excellence_abandoncart/excellence_abandoncart_setting_cart_third/enable_control">1</field>
+                    </depends>
+                </field>
+
+                <field id="abandon_cart_coupons" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Coupon to send</label>        
+                    <source_model>Excellence\AbandonCart\Model\Config\Source\AllCouponCode</source_model>
+                    <comment><![CDATA[Selected coupon code sent to user along with email.]]></comment>
+                    <depends>
+                        <field id="excellence_abandoncart/excellence_abandoncart_setting_cart_third/abandon_cart_promotion">1</field>
+                    </depends>
+                </field>             
+            </group>
+
+        </section>
+    </system>
+</config>

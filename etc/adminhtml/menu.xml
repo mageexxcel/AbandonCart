@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Excellence_AbandonCart::abandoncart" title="Abandon Cart" module="Excellence_AbandonCart" sortOrder="30" parent="Excellence_Base::base" resource="Excellence_AbandonCart::abandoncart"/>
+        <add id="Excellence_AbandonCart::abandoncart_config" title="Abandon Cart Configuration" module="Excellence_AbandonCart" sortOrder="10" parent="Excellence_AbandonCart::abandoncart" action="adminhtml/system_config/edit/section/excellence_abandoncart" resource="Excellence_AbandonCart::manage"/>
+    </menu>
+</config>

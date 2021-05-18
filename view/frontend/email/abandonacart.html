@@ -1,0 +1,40 @@
+<!--@subject {{var subject}} @-->
+<!--@vars {
+"var this.getUrl($store, 'admin')":"Warehouse Account URL",
+"var customer.email":"Customer Email",
+"var customer.name":"Customer Name"
+} @-->
+ 
+{{template config_path="design/email/header_template"}}
+
+<table width="100%">
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Hi, %customerName" customerName=$customerName}}</p>
+            
+            <p>{{trans "Greetings from  %store_name. " store_name=$store.getFrontendName()}} </p>
+
+            <p>{{trans "It\'s seems that you forgot something in your cart"}}</p>
+            <hr/>
+            {{if couponCode}}
+                <p>{{trans "Coupon Code- %couponCode" couponCode=$couponCode}}</p>
+            {{else}}
+
+            {{/if}}
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <h1>{{trans 'Cart Summary'}}</h1>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{layout handle="email_cart_data" quoteId=$quoteId area="frontend"}}    
+        </td>
+    </tr>
+</table>
+
+<br/>
+{{var message}}{{trans " You can check you current account <a href="%account_url">here</a>." account_url=$this.getUrl($store,'/customer/index/',[_nosid:1]) |raw}}
+{{template config_path="design/email/footer_template"}} <!--footer of template-->
